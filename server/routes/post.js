@@ -5,8 +5,9 @@ import {
 	getOne, 
 	getMyPosts,
 	updatePost,
-removePost } from "../controllers/post";
-import { checkAuth } from "../utils/checkAuth";
+	getPostComments,
+removePost } from "../controllers/post.js";
+import { checkAuth } from "../utils/checkAuth.js";
 
 const router = new Router()
 
@@ -17,3 +18,6 @@ router.get('/:id', getOne)
 router.get('/user/me', checkAuth, getMyPosts)
 router.delete('/:id', checkAuth,  removePost)
 router.put('/:id', checkAuth, updatePost)
+router.get('/comment/:id', getPostComments)
+
+export default router
