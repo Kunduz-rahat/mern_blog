@@ -55,7 +55,7 @@ if(!posts){
 }
 res.json({posts, popularPosts})
 }catch(e){
-	res.json({message:"Что-то пошло не так"})
+	res.json({message:"Произошла ошибка при получении всех постов"})
 }
 }
 
@@ -67,6 +67,20 @@ const post = await Post.findOneAndUpdate(req.params.id, {
 })
 res.json(post)
 }catch(e){
-	res.json({message:"Что-то пошло не так"})
+	res.json({message:"Произошла ошибка при получении поста"})
+}
+}
+
+export const getMyPosts = async(req, res)=>{
+try{
+const user = await User.findById(req.userId)
+const list = await Promise.all(
+	user.posts.map(post=>{
+		return Post.findById(post._id)
+	})
+)
+res.json(list)
+}catch(e){
+
 }
 }
