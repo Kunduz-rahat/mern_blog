@@ -58,3 +58,15 @@ res.json({posts, popularPosts})
 	res.json({message:"Что-то пошло не так"})
 }
 }
+
+
+export const getOne = async(req, res)=>{
+try{
+const post = await Post.findOneAndUpdate(req.params.id, {
+	$inc:{views:1},
+})
+res.json(post)
+}catch(e){
+	res.json({message:"Что-то пошло не так"})
+}
+}
