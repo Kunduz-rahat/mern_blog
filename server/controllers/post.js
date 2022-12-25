@@ -118,3 +118,18 @@ res.json(post)
 			res.json({message:"Произошла ошибка при редактировании поста"})
 		}
 		}
+
+
+	export	const getPostComments =async(req, res)=>{
+			try{
+				const post = await Post.findById(req.params.id)
+				const list = await Promise.all(
+					post.comments.map((comment)=>{
+						return Comment.findById(comment)
+					})
+				)
+res.json(list)
+			}catch(e){
+				res.json({message:"Произошла ошибка при получении комментариев"})
+			}
+		}

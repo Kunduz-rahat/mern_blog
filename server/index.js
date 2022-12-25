@@ -4,6 +4,7 @@ import dotenv from 'dotenv'
 import mongoose from 'mongoose'
 import authRoute from './routes/auth.js'
 import postRoute from './routes/post.js'
+import commentRoute from './routes/comment.js'
 
 
 const app = express()
@@ -18,6 +19,7 @@ app.use(express.json())
 
 app.use('/api/auth', authRoute )
 app.use('/api/post', postRoute )
+app.use('/api/comment', commentRoute)
 async function start(){
 	try{
 		await mongoose.connect(
