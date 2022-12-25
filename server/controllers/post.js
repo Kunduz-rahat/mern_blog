@@ -81,6 +81,21 @@ const list = await Promise.all(
 )
 res.json(list)
 }catch(e){
+	res.json({message:"Произошла ошибка при получении моих постов"})
+}
+}
 
-}
-}
+export const removePost = async(req, res)=>{
+	try{
+const post = Post.findByIdAndDelete(req.params.id)
+if(!post) return res.json({message:"Такого поста не существует"})
+await User.findByIdAndUpdate(req.userId, {
+	$pull:{posts:req.params.id}
+})
+res.json({
+	message:"Пост успешно удален"
+})
+	}catch(e){
+		res.json({message:"Произошла ошибка при удалении поста"})
+	}
+	}
