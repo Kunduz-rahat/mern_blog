@@ -44,9 +44,35 @@ export const register = async (req, res) => {
 }
 export const login = async (req, res)=>{
 	try{
+		const { username, password } = req.body
+		const user = await User.findOne({username})
+		if(!user){
+			return res.json({
+				message:"Такого пользователя не существует"
+			})
+		}
+		const isPasswordCorrect = await bcrypt.compare(password, user.password)
+		if(!isPasswordCorrect){
+			return res.json({
+				message:"Неверный пароль"
+			})
+		}
 
+		const token = jwt.sign(
+			{
+			id:user._id,
+		},
+		process.env.JWT_SECRET,
+		{expiresIn:'30d'},
+		)
+		res.json({
+			token, 
+			user,
+			message:"Вы вошли в систему"
+
+		})
 	}catch(e){
-		
+		res.json({ message: 'Ошибка при авторизации.' })
 	}
 }
 
