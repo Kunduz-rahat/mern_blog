@@ -42,3 +42,19 @@ res.json(newPostWithoutImage)
 	}
 }
 
+
+
+export const getAll =async(req,res)=>{
+try{
+const posts = await Post.find().sort('-createdAt')
+const popularPosts= await Post.find().limit(5).sort('-views')
+if(!posts){
+	return res.json({
+		message:"Посты отсутствуют"
+	})
+}
+res.json({posts, popularPosts})
+}catch(e){
+	res.json({message:"Что-то пошло не так"})
+}
+}
