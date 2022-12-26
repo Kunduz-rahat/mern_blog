@@ -23,7 +23,7 @@ export const Login = () => {
 	</label>
 <div className='flex gap-8 justify-center items-center mt-4'>
 <button className='flex justify-center items-center text-xs bg-gray-600  text-white rounded-sm py-2 px-4'>Подтвердить</button>
-<Link to='/register' className='flex justify-center items-center text-xs text-white'>Уже зарегистрированы </Link>
+<Link to='/login' className='flex justify-center items-center text-xs text-white'>Уже зарегистрированы </Link>
 </div>
 
 		</form>
