@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
 import { Layout } from './components/Layout'
 import { AddPost } from './pages/AddPost';
 import { EditPost } from './pages/EditPost';
@@ -9,8 +11,12 @@ import { Main } from './pages/Main';
 import { PostDetail } from './pages/PostDetail';
 import { Posts } from './pages/Posts';
 import { Register } from './pages/Register';
+import { getMe } from './store/features/auth/authSlice';
 
 export default function App() {
+  const dispatch = useDispatch()
+
+  useEffect(()=>{dispatch(getMe())}, [dispatch])
   return (
   <Layout>
     <Routes>
