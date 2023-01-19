@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-
+import { ToastContainer } from 'react-toastify';
 import { Layout } from './components/Layout'
 import { AddPost } from './pages/AddPost';
 import { EditPost } from './pages/EditPost';
@@ -23,6 +23,7 @@ export default function App() {
                 <Route path='login' element={<Login />} />
 
     </Routes>
+    <ToastContainer position='bottom'/>
   </Layout>
   )
 }
