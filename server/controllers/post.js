@@ -24,6 +24,7 @@ await User.findByIdAndUpdate(req.userId, {
 })
 return res.json(newPostWithImage)
 		}
+		
 const newPostWithoutImage = new Post({
 	username:user.username,
 	title,
