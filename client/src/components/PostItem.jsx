@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { AiFillEye, AiOutlineMessage } from 'react-icons/ai'
 import Moment from 'react-moment'
-import { Spinner } from './Spinner'
+
 
 
 
@@ -10,8 +10,8 @@ import { Spinner } from './Spinner'
 export const PostItem = ({ post }) => {
     if (!post) {
         return (
-            <div >
-                <Spinner/>
+            <div className='text-xl text-white text-center py-10' >
+              Загрузка...
             </div>
         )
     }
@@ -25,7 +25,7 @@ export const PostItem = ({ post }) => {
                 >
                     {post.imgUrl && (
                         <img
-                            src={`http://localhost:3002/${post.imgUrl}`}
+                            src={`http://localhost:5000/${post.imgUrl}`}
                             alt='img'
                             className='object-cover w-full'
                         />

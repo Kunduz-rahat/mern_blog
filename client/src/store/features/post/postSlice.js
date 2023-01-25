@@ -7,7 +7,6 @@ const initialState = {
     loading: false,
 }
 
-
 export const createPost = createAsyncThunk(
     'post/createPost',
     async (params) => {
@@ -20,7 +19,7 @@ export const createPost = createAsyncThunk(
     },
 )
 
-export const getAllPosts = createAsyncThunk('post/getAllPosts', async () => {
+export const getAllPosts = createAsyncThunk('/post/getAllPosts', async () => {
     try {
         const { data } = await axios.get('/posts')
         return data
@@ -94,9 +93,7 @@ export const postSlice = createSlice({
         [removePost.rejected]: (state) => {
             state.loading = false
         },
-
-
-        //     Обновление поста
+        // Обновление поста
         [updatePost.pending]: (state) => {
             state.loading = true
         },
@@ -112,5 +109,6 @@ export const postSlice = createSlice({
         },
     },
 })
+
 
 export default postSlice.reducer

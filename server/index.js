@@ -2,6 +2,7 @@ import express from 'express'
 import cors from 'cors'
 import dotenv from 'dotenv'
 import mongoose from 'mongoose'
+import fileUpload from 'express-fileupload'
 import authRoute from './routes/auth.js'
 import postRoute from './routes/post.js'
 import commentRoute from './routes/comment.js'
@@ -15,11 +16,13 @@ const DB_PASSWORD = process.env.DB_PASSWORD
 const DB_PORT = process.env.DB_PORT
 
 app.use(cors())
+app.use(fileUpload())
 app.use(express.json())
+app.use(express.static('uploads'))
 
 app.use('/api/auth', authRoute )
-app.use('/api/post', postRoute )
-app.use('/api/comment', commentRoute)
+app.use('/api/posts', postRoute )
+app.use('/api/comments', commentRoute)
 async function start(){
 	try{
 		await mongoose.connect(

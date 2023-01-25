@@ -18,6 +18,6 @@ router.get('/:id', getOne)
 router.get('/user/me', checkAuth, getMyPosts)
 router.delete('/:id', checkAuth,  removePost)
 router.put('/:id', checkAuth, updatePost)
-router.get('/comment/:id', getPostComments)
+router.get('/comments/:id', getPostComments)
 
 export default router

@@ -68,7 +68,7 @@ export const EditPost = () => {
             <div className='flex object-cover py-2'>
                 {oldImage && (
                     <img
-                        src={`http://localhost:3002/${oldImage}`}
+                        src={`http://localhost:5000/${oldImage}`}
                         alt={oldImage.name}
                     />
                 )}
