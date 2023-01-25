@@ -1,5 +1,6 @@
 import Post from "../models/Post.js";
 import User from "../models/User.js";
+import Comment from "../models/Comment.js";
 import path, {dirname} from 'path';
 import { fileURLToPath } from "url";
 
@@ -24,7 +25,7 @@ await User.findByIdAndUpdate(req.userId, {
 })
 return res.json(newPostWithImage)
 		}
-		
+
 const newPostWithoutImage = new Post({
 	username:user.username,
 	title,
@@ -63,7 +64,7 @@ res.json({posts, popularPosts})
 
 export const getOne = async(req, res)=>{
 try{
-const post = await Post.findOneAndUpdate(req.params.id, {
+const post = await Post.findByIdAndUpdate(req.params.id, {
 	$inc:{views:1},
 })
 res.json(post)
@@ -86,51 +87,49 @@ res.json(list)
 }
 }
 
-export const removePost = async(req, res)=>{
-	try{
-const post = Post.findByIdAndDelete(req.params.id)
-if(!post) return res.json({message:"Такого поста не существует"})
-await User.findByIdAndUpdate(req.userId, {
-	$pull:{posts:req.params.id}
-})
-res.json({
-	message:"Пост успешно удален"
-})
-	}catch(e){
-		res.json({message:"Произошла ошибка при удалении поста"})
+export const removePost = async (req, res) => {
+	try {
+			const post = await Post.findByIdAndDelete(req.params.id)
+			if (!post) return res.json({ message: 'Такого поста не существует' })
+			await User.findByIdAndUpdate(req.userId, {
+					$pull: { posts: req.params.id },
+			})
+			res.json({ message: 'Пост был удален.' })
+	} catch (error) {
+			res.json({ message: 'Что-то пошло не так.' })
 	}
-	}
+}
 
-	export const updatePost = async(req, res)=>{
-		try{
-			const {title, text} = req.body
+export const updatePost = async (req, res) => {
+	try {
+			const { title, text, id } = req.body
 			const post = await Post.findById(id)
-			if(req.files){
-				let fileName = Date.now().toString() + req.files.image.name
-				const __dirname = dirname(fileURLToPath(import.meta.url))
-				req.files.image.mv(path.join(__dirname, '..', 'uploads', fileName))
-				post.imgUrl = fileName || ''
+			if (req.files) {
+					let fileName = Date.now().toString() + req.files.image.name
+					const __dirname = dirname(fileURLToPath(import.meta.url))
+					req.files.image.mv(path.join(__dirname, '..', 'uploads', fileName))
+					post.imgUrl = fileName || ''
 			}
-post.title = title
-post.text = text
-await post.save()
-res.json(post)
-		}catch(e){
-			res.json({message:"Произошла ошибка при редактировании поста"})
-		}
-		}
+			post.title = title
+			post.text = text
+			await post.save()
+			res.json(post)
+	} catch (error) {
+			res.json({ message: 'Что-то пошло не так.' })
+	}
+}
 
 
-	export	const getPostComments =async(req, res)=>{
-			try{
-				const post = await Post.findById(req.params.id)
-				const list = await Promise.all(
-					post.comments.map((comment)=>{
-						return Comment.findById(comment)
-					})
-				)
+export	const getPostComments =async(req, res)=>{
+	try{
+		const post = await Post.findById(req.params.id)
+		const list = await Promise.all(
+			post.comments.map((comment)=>{
+				return Comment.findById(comment)
+			})
+		)
 res.json(list)
-			}catch(e){
-				res.json({message:"Произошла ошибка при получении комментариев"})
-			}
-		}
+	}catch(e){
+		res.json({message:"Произошла ошибка при получении комментариев"})
+	}
+}

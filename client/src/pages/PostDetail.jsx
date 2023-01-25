@@ -16,6 +16,7 @@ import {
     getPostComments,
 } from '../store/features/comment/commentSlice'
 import { CommentItem } from '../components/CommentItem'
+import { Spinner } from '../components/Spinner'
 
 export const PostDetail = () => {
     const [post, setPost] = useState(null)
@@ -70,7 +71,7 @@ export const PostDetail = () => {
     if (!post) {
         return (
             <div className='text-xl text-center text-white py-10'>
-                Загрузка...
+               Загрузка....
             </div>
         )
     }
@@ -94,7 +95,7 @@ export const PostDetail = () => {
                         >
                             {post?.imgUrl && (
                                 <img
-                                    src={`http://localhost:3002/${post.imgUrl}`}
+                                    src={`http://localhost:5000/${post.imgUrl}`}
                                     alt='img'
                                     className='object-cover w-full'
                                 />

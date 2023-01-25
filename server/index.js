@@ -22,7 +22,7 @@ app.use(express.static('uploads'))
 
 app.use('/api/auth', authRoute )
 app.use('/api/posts', postRoute )
-app.use('/api/comment', commentRoute)
+app.use('/api/comments', commentRoute)
 async function start(){
 	try{
 		await mongoose.connect(
