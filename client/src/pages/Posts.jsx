@@ -1,8 +1,7 @@
-import React, { useCallback } from 'react'
-import { useEffect} from 'react'
-import { useState } from 'react'
-import { PostItem } from '../components/PostItem'
+import React, { useCallback, useEffect, useState } from 'react'
 import axios from '../utils/axios'
+import { PostItem } from '../components/PostItem'
+
 
 export const Posts = () => {
     const [posts, setPosts] = useState([])
@@ -23,7 +22,7 @@ export const Posts = () => {
     }, [fetchMyPosts])
 
     return (
-        <div className='w-1/2 mx-auto py-10 flex flex-col gap-10'>
+        <div className='w-1/2 mx-auto py-10 flex flex-col gap-10 max-w-screen-xl'>
             {posts?.map((post, idx) => (
                 <PostItem post={post} key={idx} />
             ))}

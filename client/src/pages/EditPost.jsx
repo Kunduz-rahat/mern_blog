@@ -51,7 +51,7 @@ export const EditPost = () => {
 
     return (
         <form
-            className='w-1/3 mx-auto py-10'
+            className='md:w-1/3 w-2/3 mx-auto py-10 max-w-screen-xl'
             onSubmit={(e) => e.preventDefault()}
         >
             <label className='text-gray-300 py-2 bg-gray-600 text-xs mt-2 flex items-center justify-center border-2 border-dotted cursor-pointer'>
@@ -111,7 +111,7 @@ export const EditPost = () => {
 
                 <button
                     onClick={clearFormHandler}
-                    className='flex justify-center items-center bg-red-500 text-xs text-white rounded-sm py-2 px-4'
+                    className='flex justify-center items-center bg-[#fb1909] text-xs text-white rounded-sm py-2 px-4'
                 >
                     Отменить
                 </button>

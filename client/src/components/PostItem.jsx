@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { AiFillEye, AiOutlineMessage } from 'react-icons/ai'
 import Moment from 'react-moment'
+import { Spinner } from './Spinner'
 
 
 
@@ -11,7 +12,7 @@ export const PostItem = ({ post }) => {
     if (!post) {
         return (
             <div className='text-xl text-white text-center py-10' >
-              Загрузка...
+              <Spinner/>
             </div>
         )
     }
@@ -20,7 +21,7 @@ export const PostItem = ({ post }) => {
             <div className='flex flex-col basis-1/4 flex-grow'>
                 <div
                     className={
-                        post.imgUrl ? 'flex rouded-sm h-80' : 'flex rounded-sm'
+                        post.imgUrl ? 'flex h-80' : 'flex rounded-sm'
                     }
                 >
                     {post.imgUrl && (

@@ -10,13 +10,14 @@ import Moment from 'react-moment'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import axios from '../utils/axios'
-import { removePost } from '../store/features/post/postSlice'
 import {
     createComment,
     getPostComments,
 } from '../store/features/comment/commentSlice'
 import { CommentItem } from '../components/CommentItem'
 import { Spinner } from '../components/Spinner'
+import { removePost } from '../store/features/post/postSlice'
+
 
 export const PostDetail = () => {
     const [post, setPost] = useState(null)
@@ -76,7 +77,7 @@ export const PostDetail = () => {
         )
     }
     return (
-        <div>
+        <div className='max-w-screen-xl'>
             <button className='flex justify-center items-center bg-gray-600 text-xs text-white rounded-sm py-2 px-4'>
                 <Link className='flex' to={'/'}>
                     Назад
