@@ -2,18 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-*{
-margin: 0;
-padding: 0;
-box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-@layer base{
-  body{
-    font-family: "Poppins", sans-serif;
+@layer base {
+  body {
+    font-family: 'Poppins', sans-serif;
     /* background: #312e81; */
     background: -webkit-linear-gradient(to rigth, #38bdf8, #312e81);
-    background: linear-gradient(90deg, rgba(49,46,129,1) 0%, rgba(56,189,248,1) 100%);
+    background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);
     min-height: 100vh;
+    color: black;
   }
 }
 
@@ -23,22 +24,22 @@ box-sizing: border-box;
   border-radius: 50%;
   display: inline-block;
   position: relative;
-  border: 2px solid #FF3D00;
+  border: 2px solid #ff3d00;
   box-sizing: border-box;
   animation: rotation 1s linear infinite;
 }
 .loader::after {
-  content: '';  
+  content: '';
   box-sizing: border-box;
   position: absolute;
   left: 4px;
   top: 4px;
-  border: 2px solid #FFF;
+  border: 2px solid #fff;
   width: 12px;
   height: 12px;
   border-radius: 50%;
 }
-    
+
 @keyframes rotation {
   0% {
     transform: rotate(0deg);
@@ -46,4 +47,4 @@ box-sizing: border-box;
   100% {
     transform: rotate(360deg);
   }
-} 
+}
