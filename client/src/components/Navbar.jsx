@@ -21,16 +21,15 @@ export const Navbar = () => {
 
 	return (
 			<div className='md:flex py-4 md:justify-between items-center max-w-screen-xl'>
-<img src={logo} alt='logo' className='w-[150px] h-[150px]'/>
-
-
-					{isAuth && (
+<img src={logo} alt='logo' className='w-[100px] '/>
+<div className='flex mr-3'>
+{isAuth && (
 							<ul className='flex gap-8'>
 									<li>
 											<NavLink
 													to={'/'}
 													href='/'
-													className='text-xl text-[#05CCCB] hover:text-[#5271FF] duration-500'
+													className='text-[18px] text-[#05CCCB] hover:text-[#5271FF] duration-500'
 													style={({ isActive }) =>
 															isActive ? activeStyles : undefined
 													}
@@ -42,7 +41,7 @@ export const Navbar = () => {
 											<NavLink
 													to={'/posts'}
 													href='/'
-													className='text-xl text-[#05CCCB] hover:text-[#5271FF] duration-500'
+													className='text-[18px] text-[#05CCCB] hover:text-[#5271FF] duration-500'
 													style={({ isActive }) =>
 															isActive ? activeStyles : undefined
 													}
@@ -54,7 +53,7 @@ export const Navbar = () => {
 											<NavLink
 													to={'/new'}
 													href='/'
-													className='text-xl  text-[#05CCCB] hover:text-[#5271FF] duration-500'
+													className='text-[18px]  text-[#05CCCB] hover:text-[#5271FF] duration-500'
 													style={({ isActive }) =>
 															isActive ? activeStyles : undefined
 													}
@@ -62,16 +61,20 @@ export const Navbar = () => {
 													Добавить пост
 											</NavLink>
 									</li>
+								
 							</ul>
 					)}
-
-					<div >
-							{isAuth ? (
+					<div className='ml-4'>
+									{isAuth ? (
 									<MyButton onClick={logoutHandler}>Выйти</MyButton>
 							) : (
 									<MyButton to={'/login'}> Войти </MyButton>
 							)}
-					</div>
+									</div>
+
+</div>
+
+					
 			</div>
 	)
 }

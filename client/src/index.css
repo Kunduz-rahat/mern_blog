@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Gloock&family=Poppins:wght@400;500;600&family=Roboto:wght@400;500&display=swap');
 * {
   margin: 0;
   padding: 0;
@@ -9,10 +9,10 @@
 }
 @layer base {
   body {
-    font-family: 'Poppins', sans-serif;
-    /* background: #312e81; */
-    background: -webkit-linear-gradient(to rigth, #38bdf8, #312e81);
-    background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);
+    font-family: 'Roboto', sans-serif;
+    background: #f7f5ee;
+    /* background: -webkit-linear-gradient(to rigth, #38bdf8, #312e81);
+    background: linear-gradient(90deg, #e3ffe7 0%, #f7f5ee 100%); */
     min-height: 100vh;
     color: black;
   }
