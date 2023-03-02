@@ -10,13 +10,14 @@ import Moment from 'react-moment'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import axios from '../utils/axios'
-import { removePost } from '../store/features/post/postSlice'
 import {
     createComment,
     getPostComments,
 } from '../store/features/comment/commentSlice'
 import { CommentItem } from '../components/CommentItem'
 import { Spinner } from '../components/Spinner'
+import { removePost } from '../store/features/post/postSlice'
+
 
 export const PostDetail = () => {
     const [post, setPost] = useState(null)
@@ -76,8 +77,8 @@ export const PostDetail = () => {
         )
     }
     return (
-        <div>
-            <button className='flex justify-center items-center bg-gray-600 text-xs text-white rounded-sm py-2 px-4'>
+        <div className='max-w-screen-xl'>
+            <button className='flex justify-center items-center bg-gradient-to-r from-[#5271FF] to-[#05CCCB]  text-xs text-white rounded-sm py-2 px-4'>
                 <Link className='flex' to={'/'}>
                     Назад
                 </Link>
@@ -104,15 +105,15 @@ export const PostDetail = () => {
                     </div>
 
                     <div className='flex justify-between items-center pt-2'>
-                        <div className='text-xs text-white opacity-50'>
+                        <div className='text-xs text-black opacity-50'>
                             {post.username}
                         </div>
-                        <div className='text-xs text-white opacity-50'>
+                        <div className='text-xs text-black opacity-50'>
                             <Moment date={post.createdAt} format='D MMM YYYY' />
                         </div>
                     </div>
-                    <div className='text-white text-xl'>{post.title}</div>
-                    <p className='text-white opacity-60 text-xs pt-4'>
+                    <div className='text-black text-xl font-gloock uppercase font-semibold'>{post.title}</div>
+                    <p className='text-black opacity-60 text-xs pt-4'>
                         {post.text}
                     </p>
 
@@ -129,14 +130,14 @@ export const PostDetail = () => {
 
                         {user?._id === post.author && (
                             <div className='flex gap-3 mt-4'>
-                                <button className='flex items-center justify-center gap-2 text-white opacity-50'>
+                                <button className='flex items-center justify-center gap-2 text-black opacity-50'>
                                     <Link to={`/${params.id}/edit`}>
                                         <AiTwotoneEdit />
                                     </Link>
                                 </button>
                                 <button
                                     onClick={removePostHandler}
-                                    className='flex items-center justify-center gap-2  text-white opacity-50'
+                                    className='flex items-center justify-center gap-2  text-black opacity-50'
                                 >
                                     <AiFillDelete />
                                 </button>
@@ -144,7 +145,7 @@ export const PostDetail = () => {
                         )}
                     </div>
                 </div>
-                <div className='w-1/3 p-8 bg-gray-700 flex flex-col gap-2 rounded-sm'>
+                <div className='w-1/3 p-8 bg-[#aee9e4]  flex flex-col gap-2 rounded-sm'>
                     <form
                         className='flex gap-2'
                         onSubmit={(e) => e.preventDefault()}
@@ -154,12 +155,12 @@ export const PostDetail = () => {
                             value={comment}
                             onChange={(e) => setComment(e.target.value)}
                             placeholder='Comment'
-                            className='text-black w-full rounded-sm bg-gray-400 border p-2 text-xs outline-none placeholder:text-gray-700'
+                            className='text-black w-full rounded-sm bg-gradient-to-r from-[#5271FF] to-[#05CCCB] border p-2 text-xs outline-none placeholder:text-gray-700'
                         />
                         <button
                             type='submit'
                             onClick={handleSubmit}
-                            className='flex justify-center items-center bg-gray-600 text-xs text-white rounded-sm py-2 px-4'
+                            className='flex justify-center items-center bg-gradient-to-r from-[#5271FF] to-[#05CCCB] text-xs text-white rounded-sm py-2 px-4'
                         >
                             Отправить
                         </button>

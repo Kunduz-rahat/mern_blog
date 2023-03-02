@@ -1,15 +1,16 @@
 import React from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import {  NavLink } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { checkIsAuth, logout } from '../store/features/auth/authSlice'
 import { toast } from 'react-toastify'
-
+import MyButton from './UI/MyButton'
+import logo from '../assets/logo.png'
 export const Navbar = () => {
 	const isAuth = useSelector(checkIsAuth)
 	const dispatch = useDispatch()
 
 	const activeStyles = {
-			color: 'white',
+			color: '#5271FF',
 	}
 
 	const logoutHandler = () => {
@@ -19,18 +20,16 @@ export const Navbar = () => {
 	}
 
 	return (
-			<div className='flex py-4 justify-between items-center'>
-					<span className='flex justify-center items-center  bg-gray-600 text-xs text-white rounded-sm p-2'>
-							BLOG
-					</span>
-
-					{isAuth && (
+			<div className='md:flex py-4 md:justify-between items-center max-w-screen-xl'>
+<img src={logo} alt='logo' className='w-[100px] '/>
+<div className='flex mr-3'>
+{isAuth && (
 							<ul className='flex gap-8'>
 									<li>
 											<NavLink
 													to={'/'}
 													href='/'
-													className='text-xs text-gray-400 hover:text-white'
+													className='text-[18px] text-[#05CCCB] hover:text-[#5271FF] duration-500'
 													style={({ isActive }) =>
 															isActive ? activeStyles : undefined
 													}
@@ -42,7 +41,7 @@ export const Navbar = () => {
 											<NavLink
 													to={'/posts'}
 													href='/'
-													className='text-xs text-gray-400 hover:text-white'
+													className='text-[18px] text-[#05CCCB] hover:text-[#5271FF] duration-500'
 													style={({ isActive }) =>
 															isActive ? activeStyles : undefined
 													}
@@ -54,7 +53,7 @@ export const Navbar = () => {
 											<NavLink
 													to={'/new'}
 													href='/'
-													className='text-xs text-gray-400 hover:text-white'
+													className='text-[18px]  text-[#05CCCB] hover:text-[#5271FF] duration-500'
 													style={({ isActive }) =>
 															isActive ? activeStyles : undefined
 													}
@@ -62,16 +61,20 @@ export const Navbar = () => {
 													Добавить пост
 											</NavLink>
 									</li>
+								
 							</ul>
 					)}
-
-					<div className='flex justify-center items-center bg-gray-600 text-xs text-white rounded-sm px-4 py-2'>
-							{isAuth ? (
-									<button onClick={logoutHandler}>Выйти</button>
+					<div className='ml-4'>
+									{isAuth ? (
+									<MyButton onClick={logoutHandler}>Выйти</MyButton>
 							) : (
-									<Link to={'/login'}> Войти </Link>
+									<MyButton to={'/login'}> Войти </MyButton>
 							)}
-					</div>
+									</div>
+
+</div>
+
+					
 			</div>
 	)
 }
