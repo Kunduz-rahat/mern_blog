@@ -29,7 +29,7 @@ export const Navbar = () => {
 											<NavLink
 													to={'/'}
 													href='/'
-													className='text-[18px] text-[#05CCCB] hover:text-[#5271FF] duration-500'
+													className='text-[18px] text-[#05CCCB] hover:text-[#5271FF] duration-500 font-gloock'
 													style={({ isActive }) =>
 															isActive ? activeStyles : undefined
 													}
@@ -41,7 +41,7 @@ export const Navbar = () => {
 											<NavLink
 													to={'/posts'}
 													href='/'
-													className='text-[18px] text-[#05CCCB] hover:text-[#5271FF] duration-500'
+													className='text-[18px] text-[#05CCCB] hover:text-[#5271FF] duration-500 font-gloock'
 													style={({ isActive }) =>
 															isActive ? activeStyles : undefined
 													}
@@ -53,7 +53,7 @@ export const Navbar = () => {
 											<NavLink
 													to={'/new'}
 													href='/'
-													className='text-[18px]  text-[#05CCCB] hover:text-[#5271FF] duration-500'
+													className='text-[18px]  text-[#05CCCB] hover:text-[#5271FF] duration-500 font-gloock'
 													style={({ isActive }) =>
 															isActive ? activeStyles : undefined
 													}

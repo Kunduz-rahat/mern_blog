@@ -11,7 +11,7 @@ import { Spinner } from './Spinner'
 export const PostItem = ({ post }) => {
     if (!post) {
         return (
-            <div className='text-xl text-white text-center py-10' >
+            <div className='text-xl text-black text-center py-10' >
               <Spinner/>
             </div>
         )
@@ -19,11 +19,13 @@ export const PostItem = ({ post }) => {
     return (
         <Link to={`/${post._id}`}>
             <div className='flex flex-col basis-1/4 flex-grow'>
+            <span className='text-black text-xl font-gloock tracking-wider'>{post.title}</span>
                 <div
                     className={
                         post.imgUrl ? 'flex h-80' : 'flex rounded-sm'
                     }
                 >
+                
                     {post.imgUrl && (
                         <img
                             src={`http://localhost:5000/${post.imgUrl}`}
@@ -33,15 +35,15 @@ export const PostItem = ({ post }) => {
                     )}
                 </div>
                 <div className='flex justify-between items-center pt-2'>
-                    <div className='text-xs text-white opacity-50'>
+                    <div className='text-xs text-black opacity-50'>
                         {post.username}
                     </div>
-                    <div className='text-xs text-white opacity-50'>
+                    <div className='text-xs text-slate-600 font-gloock'>
                         <Moment date={post.createdAt} format='D MMM YYYY' />
                     </div>
                 </div>
-                <div className='text-white text-xl'>{post.title}</div>
-                <p className='text-white opacity-60 text-xs pt-4 line-clamp-4'>
+              
+                <p className='text-black text-xs pt-4 line-clamp-4 tracking-wider '>
                     {post.text}
                 </p>
 
