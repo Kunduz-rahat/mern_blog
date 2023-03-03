@@ -1,0 +1,21 @@
+{
+  "name": "mern_post_app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./server/index.js",
+  "scripts": {
+    
+    "start": "cd ./server && node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kunduz-rahat/mern_blog.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kunduz-rahat/mern_blog/issues"
+  },
+  "homepage": "https://github.com/Kunduz-rahat/mern_blog#readme"
+}
