@@ -20,7 +20,7 @@ export const Navbar = () => {
   };
 
   return (
-    <div className="md:flex py-4 md:justify-between items-center max-w-screen-xl">
+    <div className="md:flex p-4 md:justify-between items-center max-w-screen-xl">
       <img src={logo} alt="logo" className="w-[100px] " />
       <div className="flex mr-3">
         {isAuth && (
@@ -57,7 +57,7 @@ export const Navbar = () => {
             </li>
           </ul>
         )}
-        <div className="ml-4">
+        <div className="ml-8">
           {isAuth ? (
             <MyButton onClick={logoutHandler}>Выйти</MyButton>
           ) : (

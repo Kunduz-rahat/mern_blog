@@ -15,9 +15,9 @@ export const PostItem = ({ post }) => {
   return (
     <Link to={`/${post._id}`}>
       <div className="flex flex-col basis-1/4 flex-grow">
-        <span className="text-black text-xl font-gloock tracking-wider mb-2 line-clamp-3">
+        <p className="text-black text-xl font-gloock tracking-wider md:mb-2 mt-2 line-clamp-3">
           {post.title}
-        </span>
+        </p>
         <div className={post.imgUrl ? 'flex h-80' : 'flex rounded-sm'}>
           {post.imgUrl && (
             <img

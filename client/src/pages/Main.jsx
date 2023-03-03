@@ -24,18 +24,18 @@ export const Main = () => {
   }
 
   return (
-    <div className=" mx-auto py-10">
-      <div className="grid grid-cols-2 ">
+    <div className=" mx-auto p-4">
+      <div className=" w-full md:grid md:grid-cols-2 ">
         <div>
-          <h2 className="bg-clip-text bg-gradient-to-r from-[#5271FF] to-[#05CCCB]  text-transparent text-5xl font-gloock font-semibold">
+          <h2 className="bg-clip-text bg-gradient-to-r from-[#5271FF] to-[#05CCCB]  text-transparent text-2xl md:text-5xl font-gloock font-semibold">
             Добро пожаловать на наш блог пост про путешествие
           </h2>
-          <p className="text-3xl font-gloock mt-4">
+          <p className="md:text-3xl text-xl font-gloock mt-4">
             Вы можете добавить интересную статью про свое путешествие и описать
             ее
           </p>
         </div>
-        <div className="flex">
+        <div className="md:flex justify-between">
           <div>
             <img alt="travel" src={travel} className="h-[350px]" />
           </div>
@@ -52,7 +52,7 @@ export const Main = () => {
       </div>
       <div className="md:flex justify-between gap-8">
         <div className="md:flex md:flex-col gap-10 ">
-          <div className="grid grid-cols-2 gap-3">
+          <div className="w-full md:grid md:grid-cols-2 gap-3">
             {posts?.map((post, idx) => (
               <PostItem key={idx} post={post} />
             ))}

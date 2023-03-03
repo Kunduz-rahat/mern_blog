@@ -74,16 +74,16 @@ export const PostDetail = () => {
     );
   }
   return (
-    <div className="max-w-screen-xl">
-      <button className="flex justify-center items-center bg-gradient-to-r from-[#5271FF] to-[#05CCCB]  text-xs text-white rounded-sm py-2 px-4">
+    <div className="max-w-screen-xl mx-auto p-3">
+      <button className="md:flex justify-center items-center bg-gradient-to-r from-[#5271FF] to-[#05CCCB]  text-xs text-white rounded-sm py-2 px-4">
         <Link className="flex" to={'/'}>
           Назад
         </Link>
       </button>
 
-      <div className="flex gap-10 py-8">
-        <div className="w-2/3">
-          <div className="flex flex-col basis-1/4 flex-grow">
+      <div className="md:flex gap-10 py-8">
+        <div className="md:w-2/3 w-full">
+          <div className="w-full md:flex md:flex-col md:basis-1/4 flex-grow">
             <div
               className={
                 post?.imgUrl ? 'flex rouded-sm h-80' : 'flex rounded-sm'
@@ -108,7 +108,7 @@ export const PostDetail = () => {
           <div className="text-black text-xl font-gloock uppercase font-semibold">
             {post.title}
           </div>
-          <p className="text-black opacity-60 text-[16px] pt-4">{post.text}</p>
+          <p className="text-black opacity-60 text-[14px] pt-4">{post.text}</p>
 
           <div className="flex gap-3 items-center mt-2 justify-between">
             <div className="flex gap-3 mt-4">
@@ -137,7 +137,7 @@ export const PostDetail = () => {
             )}
           </div>
         </div>
-        <div className="w-1/3 p-8 bg-[#aee9e4]  flex flex-col gap-2 rounded-sm">
+        <div className="md:w-1/3 p-8 w-full mt-3 bg-[#aee9e4]  flex flex-col gap-2 rounded-sm">
           <form className="flex gap-2" onSubmit={(e) => e.preventDefault()}>
             <input
               type="text"
