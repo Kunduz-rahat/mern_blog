@@ -40,6 +40,35 @@ export const register = async (req, res) => {
     res.json({ message: 'Ошибка при создании пользователя.' });
   }
 };
+
+
+export const getMe = async (req, res) => {
+  try {
+    const user = await User.findById(req.userId);
+
+    if (!user) {
+      return res.json({
+        message: 'Такого пользователя не существует.',
+      });
+    }
+
+    const token = jwt.sign(
+      {
+        id: user._id,
+      },
+      process.env.JWT_SECRET,
+      { expiresIn: '30d' },
+    );
+
+    res.json({
+      user,
+      token,
+    });
+  } catch (error) {
+    res.json({ message: 'Нет доступа.' });
+  }
+};
+
 export const login = async (req, res) => {
   try {
     const { username, password } = req.body;
@@ -70,32 +99,5 @@ export const login = async (req, res) => {
     });
   } catch (e) {
     res.json({ message: 'Ошибка при авторизации.' });
-  }
-};
-
-export const getMe = async (req, res) => {
-  try {
-    const user = await User.findById(req.userId);
-
-    if (!user) {
-      return res.json({
-        message: 'Такого пользователя не существует.',
-      });
-    }
-
-    const token = jwt.sign(
-      {
-        id: user._id,
-      },
-      process.env.JWT_SECRET,
-      { expiresIn: '30d' },
-    );
-
-    res.json({
-      user,
-      token,
-    });
-  } catch (error) {
-    res.json({ message: 'Нет доступа.' });
   }
 };
