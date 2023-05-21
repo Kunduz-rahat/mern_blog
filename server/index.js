@@ -31,7 +31,7 @@ app.use('/api/comments', commentRoute);
 
 async function start() {
   try {
-    // mongoose.set('strictQuery', true);
+    mongoose.set('strictQuery', true);
     await mongoose.connect(
       `mongodb+srv://${DB_USER}:${DB_PASSWORD}@cluster0.dg6ylqc.mongodb.net/${DB_NAME}?retryWrites=true&w=majority`,
     );
