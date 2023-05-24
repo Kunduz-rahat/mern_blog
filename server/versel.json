@@ -1,7 +1,5 @@
 {
-    "build":[
-        {"src":"*.html", "use":"@versel/static"},
-        {"src":"*.py", "use":"@versel/python"},
-        {"src":"*.js", "use":"@versel/node"}
-    ]
+  "version": 2,
+  "builds": [{ "src": "*.js", "use": "@versel/node" }],
+  "routes": [{ "src": "/(.*)", "dest": "/" }]
 }
