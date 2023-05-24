@@ -15,9 +15,7 @@ const DB_USER = process.env.DB_USER;
 const DB_PASSWORD = process.env.DB_PASSWORD;
 const DB_PORT = process.env.DB_PORT;
 
-app.use(cors(
-  {origin:['https://mern-post-app-cmtt.onrender.com']}
-));
+app.use(cors());
 app.use(fileUpload());
 app.use(express.json());
 app.use(express.static('uploads'));
