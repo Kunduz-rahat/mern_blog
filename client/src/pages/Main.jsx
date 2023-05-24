@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getAllPosts } from '../store/features/post/postSlice';
-import { PostItem } from '../components/PostItem';
-import { PopularPosts } from '../components/PopularPosts';
-import travel from '../assets/travel.png';
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllPosts } from "../store/features/post/postSlice";
+import { PostItem } from "../components/PostItem";
+import { PopularPosts } from "../components/PopularPosts";
+import travel from "../assets/travel.png";
 
 export const Main = () => {
   const dispatch = useDispatch();

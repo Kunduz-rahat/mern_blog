@@ -1,8 +1,8 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { AiFillEye, AiOutlineMessage } from 'react-icons/ai';
-import Moment from 'react-moment';
-import { Spinner } from './Spinner';
+import React from "react";
+import { Link } from "react-router-dom";
+import { AiFillEye, AiOutlineMessage } from "react-icons/ai";
+import Moment from "react-moment";
+import { Spinner } from "./Spinner";
 
 export const PostItem = ({ post }) => {
   if (!post) {
@@ -18,7 +18,7 @@ export const PostItem = ({ post }) => {
         <p className="text-black text-xl font-gloock tracking-wider md:mb-2 mt-2 line-clamp-3">
           {post.title}
         </p>
-        <div className={post.imgUrl ? 'flex h-80' : 'flex rounded-sm'}>
+        <div className={post.imgUrl ? "flex h-80" : "flex rounded-sm"}>
           {post.imgUrl && (
             <img
               src={`http://localhost:5000/${post.imgUrl}`}

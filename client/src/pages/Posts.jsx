@@ -1,15 +1,15 @@
-import React, { useCallback, useEffect, useState } from 'react';
-import axios from '../utils/axios';
-import { PostItem } from '../components/PostItem';
+import React, { useCallback, useEffect, useState } from "react";
+import axios from "../utils/axios";
+import { PostItem } from "../components/PostItem";
 
 export const Posts = () => {
   const [posts, setPosts] = useState([]);
 
   const fetchMyPosts = useCallback(async () => {
     try {
-      const { data } = await axios.get('/posts/user/me');
+      const { data } = await axios.get("/posts/user/me");
       setPosts(data);
-      console.log('render');
+      console.log("render");
     } catch (error) {
       console.log(error);
     }

@@ -1,14 +1,14 @@
-import { useEffect, useState, useCallback } from 'react';
-import { useDispatch } from 'react-redux';
-import { useNavigate, useParams } from 'react-router-dom';
-import axios from '../utils/axios';
-import { updatePost } from '../store/features/post/postSlice';
+import { useEffect, useState, useCallback } from "react";
+import { useDispatch } from "react-redux";
+import { useNavigate, useParams } from "react-router-dom";
+import axios from "../utils/axios";
+import { updatePost } from "../store/features/post/postSlice";
 
 export const EditPost = () => {
-  const [title, setTitle] = useState('');
-  const [text, setText] = useState('');
-  const [newImage, setNewImage] = useState('');
-  const [oldImage, setOldImage] = useState('');
+  const [title, setTitle] = useState("");
+  const [text, setText] = useState("");
+  const [newImage, setNewImage] = useState("");
+  const [oldImage, setOldImage] = useState("");
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -24,20 +24,20 @@ export const EditPost = () => {
   const submitHandler = () => {
     try {
       const updatedPost = new FormData();
-      updatedPost.append('title', title);
-      updatedPost.append('text', text);
-      updatedPost.append('id', params.id);
-      updatedPost.append('image', newImage);
+      updatedPost.append("title", title);
+      updatedPost.append("text", text);
+      updatedPost.append("id", params.id);
+      updatedPost.append("image", newImage);
       dispatch(updatePost(updatedPost));
-      navigate('/posts');
+      navigate("/posts");
     } catch (error) {
       console.log(error);
     }
   };
 
   const clearFormHandler = () => {
-    setTitle('');
-    setText('');
+    setTitle("");
+    setText("");
   };
 
   useEffect(() => {
@@ -56,7 +56,7 @@ export const EditPost = () => {
           className="hidden"
           onChange={(e) => {
             setNewImage(e.target.files[0]);
-            setOldImage('');
+            setOldImage("");
           }}
         />
       </label>

@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { toast } from 'react-toastify';
-import { checkIsAuth, loginUser } from '../store/features/auth/authSlice';
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { toast } from "react-toastify";
+import { checkIsAuth, loginUser } from "../store/features/auth/authSlice";
 
 export const Login = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   const { status } = useSelector((state) => state.auth);
   const isAuth = useSelector(checkIsAuth);
@@ -15,7 +15,7 @@ export const Login = () => {
 
   useEffect(() => {
     if (status) toast(status);
-    if (isAuth) navigate('/');
+    if (isAuth) navigate("/");
   }, [status, isAuth, navigate]);
 
   const handleSubmit = () => {

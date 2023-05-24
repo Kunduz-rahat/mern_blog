@@ -1,5 +1,5 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from '../../../utils/axios';
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "../../../utils/axios";
 
 const initialState = {
   comments: [],
@@ -7,7 +7,7 @@ const initialState = {
 };
 
 export const createComment = createAsyncThunk(
-  'comment/createComment',
+  "comment/createComment",
   async ({ postId, comment }) => {
     try {
       const { data } = await axios.post(`/comments/${postId}`, {
@@ -18,11 +18,11 @@ export const createComment = createAsyncThunk(
     } catch (error) {
       console.log(error);
     }
-  },
+  }
 );
 
 export const getPostComments = createAsyncThunk(
-  'comment/getPostComments',
+  "comment/getPostComments",
   async (postId) => {
     try {
       const { data } = await axios.get(`/posts/comments/${postId}`);
@@ -30,11 +30,11 @@ export const getPostComments = createAsyncThunk(
     } catch (error) {
       console.log(error);
     }
-  },
+  }
 );
 
 export const commentSlice = createSlice({
-  name: 'comment',
+  name: "comment",
   initialState,
   reducers: {},
   extraReducers: {

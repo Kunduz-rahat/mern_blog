@@ -1,30 +1,30 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { createPost } from '../store/features/post/postSlice';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { createPost } from "../store/features/post/postSlice";
 
 export const AddPost = () => {
-  const [title, setTitle] = useState('');
-  const [text, setText] = useState('');
-  const [image, setImage] = useState('');
+  const [title, setTitle] = useState("");
+  const [text, setText] = useState("");
+  const [image, setImage] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const submitHandler = () => {
     try {
       const data = new FormData();
-      data.append('title', title);
-      data.append('text', text);
-      data.append('image', image);
+      data.append("title", title);
+      data.append("text", text);
+      data.append("image", image);
       dispatch(createPost(data));
-      navigate('/');
+      navigate("/");
     } catch (error) {
       console.log(error);
     }
   };
   const clearFormHandler = () => {
-    setText('');
-    setTitle('');
+    setText("");
+    setTitle("");
   };
 
   return (
