@@ -1,0 +1,7 @@
+{
+    "build":[
+        {"src":"*.html", "use":"@versel/static"},
+        {"src":"*.py", "use":"@versel/python"},
+        {"src":"*.js", "use":"@versel/node"}
+    ]
+}
