@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { checkIsAuth, logout } from "../store/features/auth/authSlice";
@@ -22,7 +22,10 @@ export const Navbar = () => {
 
   return (
     <div className="md:flex p-4 md:justify-between items-center max-w-screen-xl">
-      <img src={logo} alt="logo" className="w-[100px] " />
+      <Link to={"/"}>
+        <img src={logo} alt="logo" className="w-[100px] " />
+      </Link>
+
       <div className="flex mr-3">
         {isAuth && (
           <ul className="flex gap-8">
