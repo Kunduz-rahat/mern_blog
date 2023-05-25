@@ -25,8 +25,8 @@ export default function App() {
         <Route path="/" element={<Main />} />
         <Route path="posts" element={<Posts />} />
         <Route path=":id" element={<PostDetail />} />
-        <Route path="new" element={<AddPost />} />
         <Route path=":id/edit" element={<EditPost />} />
+        <Route path="new" element={<AddPost />} />
         <Route path="register" element={<Register />} />
         <Route path="login" element={<Login />} />
       </Routes>
