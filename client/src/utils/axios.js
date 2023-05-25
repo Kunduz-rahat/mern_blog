@@ -1,5 +1,8 @@
 import axios from "axios";
 
+
+// baseURL: "http://localhost:5000/api",
+//   baseURL: "https://mern-blog-rho.vercel.app/api",
 const instance = axios.create({
   baseURL: "https://mern-blog-rho.vercel.app/api",
 });
