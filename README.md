@@ -33,3 +33,12 @@
 Добавить посты, если авторизован
 Есть возможность редактировать свои посты
 Удалять посты
+
+## Screenshots
+
+
+![home](/assets/home.png)
+![myPosts](/assets/myPosts.png)
+![postDetail](/assets/postDetail.png)
+![addPost](/assets//addPost.jpg)
+![editPost](/assets//postedit.png)
