@@ -46,7 +46,7 @@ export const createPost = async (req, res) => {
 export const getAll = async (req, res) => {
   try {
     const posts = await Post.find().sort('-createdAt');
-    const popularPosts = await Post.find().limit(5).sort('-views');
+    const popularPosts = await Post.find().limit(10).sort('-views');
     if (!posts) {
       return res.json({
         message: 'Посты отсутствуют',
