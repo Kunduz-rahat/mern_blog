@@ -7,10 +7,11 @@ import { registerUser, checkIsAuth } from "../store/features/auth/authSlice";
 export const Register = () => {
   const { status } = useSelector((state) => state.auth);
   const isAuth = useSelector(checkIsAuth);
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
 
   useEffect(() => {
     if (status) {
