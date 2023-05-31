@@ -21,7 +21,7 @@ export const PostItem = ({ post }) => {
         <div className={post.imgUrl ? "flex h-80" : "flex rounded-sm"}>
           {post.imgUrl && (
             <img
-              src={`http://localhost:5000/${post.imgUrl}`}
+              src={`https://mern-blog-rho.vercel.app/${post.imgUrl}`}
               alt="img"
               className="object-cover w-full"
             />
