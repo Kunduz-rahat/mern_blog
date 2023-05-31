@@ -62,7 +62,7 @@ export const EditPost = () => {
       </label>
       <div className="flex object-cover py-2">
         {oldImage && (
-          <img src={`https://mern-blog-rho.vercel.app/api/${oldImage}`} alt={oldImage.name} />
+          <img src={`https://mern-blog-rho.vercel.app/${oldImage}`} alt={oldImage.name} />
         )}
         {newImage && (
           <img src={URL.createObjectURL(newImage)} alt={newImage.name} />
